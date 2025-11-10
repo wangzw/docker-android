@@ -75,9 +75,9 @@ if [[ "${p}" == *"emulator"* ]]; then
     TAG_NAME+="_${a_v}"
 fi
 
-IMAGE_NAME_LATEST="${IMAGE_REGISTRY}:${IMAGE_NAME}:${TAG_NAME}"
+IMAGE_NAME_LATEST="${IMAGE_REGISTRY}/${IMAGE_NAME}:${TAG_NAME}"
 TAG_NAME+="_${r_v}"
-IMAGE_NAME_SPECIFIC_RELEASE=${IMAGE_REGISTRY}:${IMAGE_NAME}:${TAG_NAME}
+IMAGE_NAME_SPECIFIC_RELEASE=${IMAGE_REGISTRY}/${IMAGE_NAME}:${TAG_NAME}
 echo "${IMAGE_NAME_SPECIFIC_RELEASE} or ${IMAGE_NAME_LATEST} "
 
 function build() {
@@ -98,7 +98,7 @@ function build() {
 
     if [ -n "${a_v}" ] && [ "${a_v}" = "${last_key}" ]; then
         echo "${a_v} is the last version in the list, will use it as default image tag"
-        docker tag ${IMAGE_NAME_SPECIFIC_RELEASE} ${IMAGE_REGISTRY}:${IMAGE_NAME}:latest
+        docker tag ${IMAGE_NAME_SPECIFIC_RELEASE} ${IMAGE_REGISTRY}/${IMAGE_NAME}:latest
     fi
 }
 
@@ -118,7 +118,7 @@ function push() {
     docker push ${IMAGE_NAME_SPECIFIC_RELEASE}
     docker push ${IMAGE_NAME_LATEST}
     if [ -n "${a_v}" ] && [ "${a_v}" = "${last_key}" ]; then
-        docker push ${IMAGE_REGISTRY}:${IMAGE_NAME}:latest
+        docker push ${IMAGE_REGISTRY}/${IMAGE_NAME}:latest
     fi
 }
 
