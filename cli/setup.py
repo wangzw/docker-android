@@ -17,5 +17,8 @@ setup(
     packages=find_packages(where="src"),
     py_modules=["app"],
     package_dir={"": "src"},
+    package_data={
+        'logger':["logging.conf"]
+    },
     entry_points={"console_scripts": ["docker-android=app:cli"]},
 )
