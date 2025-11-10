@@ -2,7 +2,7 @@
 	export USER="xxx"
 	export PASS="xxx"
 
-	docker run -d -p 4723:4723 -v ${PWD}/example/genycloud/saas.json:/home/androidusr/genymotion_template/saas.json -e DEVICE_TYPE=geny_saas -e GENY_SAAS_USER=${USER} -e GENY_SAAS_PASS=${PASS} -e APPIUM=true --name android-container budtmo/docker-android:genymotion
+	docker run -d -p 4723:4723 -v ${PWD}/example/genycloud/saas.json:/home/androidusr/genymotion_template/saas.json -e DEVICE_TYPE=geny_saas -e GENY_SAAS_USER=${USER} -e GENY_SAAS_PASS=${PASS} -e APPIUM=true --name android-container ghcr.io/wangzw/docker-android:genymotion
 	```
 Genymotion Cloud
 ----------------
@@ -17,7 +17,7 @@ You can use Genymotion Android virtual devices in the cloud. They are available 
 	```
 	export AUTH_TOKEN="xxx"
 
-	docker run -d -p 4723:4723 -v ${PWD}/example/genycloud/saas.json:/home/androidusr/genymotion_template/saas.json -e DEVICE_TYPE=geny_saas -e GENY_AUTH_TOKEN=${AUTH_TOKEN} -e APPIUM=true --name android-container budtmo/docker-android:genymotion
+	docker run -d -p 4723:4723 -v ${PWD}/example/genycloud/saas.json:/home/androidusr/genymotion_template/saas.json -e DEVICE_TYPE=geny_saas -e GENY_AUTH_TOKEN=${AUTH_TOKEN} -e APPIUM=true --name android-container ghcr.io/wangzw/docker-android:genymotion
 	```
 
     Genymotion has deprecated credential based login since gmsaas 1.10.0, but if necessary, you can still provide them using `-e GENY_SAAS_USER=${USER} -e GENY_SAAS_PASS=${PASS}` instead of `-e GENY_AUTH_TOKEN=${AUTH_TOKEN}`.
@@ -38,7 +38,7 @@ You can use Genymotion Android virtual devices in the cloud. They are available 
 	export AWS_ACCESS_KEY_ID="xxx"
 	export AWS_SECRET_ACCESS_KEY="xxx"
 
-	docker run -it --rm -p 4723:4723 -v ${PWD}/example/genycloud/aws.json:/home/androidusr/genymotion_template/aws.json -e DEVICE_TYPE=geny_aws -e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} -e GENY_SAAS_PASS=${AWS_SECRET_ACCESS_KEY} -e APPIUM=true budtmo/docker-android:genymotion
+	docker run -it --rm -p 4723:4723 -v ${PWD}/example/genycloud/aws.json:/home/androidusr/genymotion_template/aws.json -e DEVICE_TYPE=geny_aws -e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} -e GENY_SAAS_PASS=${AWS_SECRET_ACCESS_KEY} -e APPIUM=true ghcr.io/wangzw/docker-android:genymotion
 	```
 
 	The deployed device(s) are automatically connected with adb inside docker container. Stopping the emulator will remove all deployed device(s) on Genymotion SaaS and user will be logged out at the end. As destroying all deployed ressources take time in AWS (it takes around 3 min), you need to specify the waiting time on docker stop

@@ -16,7 +16,7 @@ body:
     attributes:
       label: Docker Image
       description: Which docker image do you use?
-      placeholder: e.g. budtmo/docker-android:emulator_10.0_v2.0 / budtmo/docker-android:genymotion_v2.0 etc
+      placeholder: e.g. ghcr.io/wangzw/docker-android:emulator_10.0_v2.0 / ghcr.io/wangzw/docker-android:genymotion_v2.0 etc
     validations:
       required: true
   - type: textarea

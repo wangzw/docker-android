@@ -3,7 +3,7 @@
   <img id="header" src="./images/logo_docker-android.png" />
 </p>
 
-[![Paypal Donate](https://img.shields.io/badge/paypal-donate-blue.svg)](http://paypal.me/budtmo) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![codecov](https://codecov.io/gh/budtmo/docker-android/branch/master/graph/badge.svg)](https://codecov.io/gh/budtmo/docker-android) [![Join the chat at https://gitter.im/budtmo/docker-android](https://badges.gitter.im/budtmo/docker-android.svg)](https://gitter.im/budtmo/docker-android?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![GitHub release](https://img.shields.io/github/release/budtmo/docker-android.svg)](https://github.com/budtmo/docker-android/releases)
+[![Paypal Donate](https://img.shields.io/badge/paypal-donate-blue.svg)](http://paypal.me/budtmo) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![codecov](https://codecov.io/gh/wangzw/docker-android/branch/master/graph/badge.svg)](https://codecov.io/gh/wangzw/docker-android) [![Join the chat at https://gitter.im/wangzw/docker-android](https://badges.gitter.im/wangzw/docker-android.svg)](https://gitter.im/wangzw/docker-android?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![GitHub release](https://img.shields.io/github/release/wangzw/docker-android.svg)](https://github.com/wangzw/docker-android/releases)
 
 Docker-Android is a docker image built to be used for everything related to Android. It can be used for Application development and testing (native, web and hybrid-app).
 
@@ -21,13 +21,13 @@ List of Docker-Images
 ---------------------
 |Android   |API   |Image with latest release version   |Image with specific release version|
 |:---|:---|:---|:---|
-|9.0|28|budtmo/docker-android:emulator_9.0|budtmo/docker-android:emulator_9.0_<release_version>|
-|10.0|29|budtmo/docker-android:emulator_10.0|budtmo/docker-android:emulator_10.0_<release_version>|
-|11.0|30|budtmo/docker-android:emulator_11.0|budtmo/docker-android:emulator_11.0_<release_version>|
-|12.0|32|budtmo/docker-android:emulator_12.0|budtmo/docker-android:emulator_12.0_<release_version>|
-|13.0|33|budtmo/docker-android:emulator_13.0|budtmo/docker-android:emulator_13.0_<release_version>|
-|14.0|34|budtmo/docker-android:emulator_14.0|budtmo/docker-android:emulator_14.0_<release_version>|
-|-|-|budtmo/docker-android:genymotion|budtmo/docker-android:genymotion_<release_version>|
+|9.0|28|ghcr.io/wangzw/docker-android:emulator_9.0|ghcr.io/wangzw/docker-android:emulator_9.0_<release_version>|
+|10.0|29|ghcr.io/wangzw/docker-android:emulator_10.0|ghcr.io/wangzw/docker-android:emulator_10.0_<release_version>|
+|11.0|30|ghcr.io/wangzw/docker-android:emulator_11.0|ghcr.io/wangzw/docker-android:emulator_11.0_<release_version>|
+|12.0|32|ghcr.io/wangzw/docker-android:emulator_12.0|ghcr.io/wangzw/docker-android:emulator_12.0_<release_version>|
+|13.0|33|ghcr.io/wangzw/docker-android:emulator_13.0|ghcr.io/wangzw/docker-android:emulator_13.0_<release_version>|
+|14.0|34|ghcr.io/wangzw/docker-android:emulator_14.0|ghcr.io/wangzw/docker-android:emulator_14.0_<release_version>|
+|-|-|ghcr.io/wangzw/docker-android:genymotion|ghcr.io/wangzw/docker-android:genymotion_<release_version>|
 
 List of Devices
 ---------------
@@ -65,7 +65,7 @@ Quick Start
 
 3. Run Docker-Android container
     ```
-    docker run -d -p 6080:6080 -e EMULATOR_DEVICE="Samsung Galaxy S10" -e WEB_VNC=true --device /dev/kvm --name android-container budtmo/docker-android:emulator_11.0
+    docker run -d -p 6080:6080 -e EMULATOR_DEVICE="Samsung Galaxy S10" -e WEB_VNC=true --device /dev/kvm --name android-container ghcr.io/wangzw/docker-android:emulator_11.0
     ```
 
 4. Open ***http://localhost:6080*** to see inside running container.
@@ -80,7 +80,7 @@ Persisting data
 
 The default behaviour is to destroy the emulated device on container restart. To persist data, you need to mount a volume at `/home/androidusr`:
     ```
-    docker run -v data:/home/androidusr budtmo/docker-android:emulator_11.0
+    docker run -v data:/home/androidusr ghcr.io/wangzw/docker-android:emulator_11.0
     ```
 
 WSL2 Hardware acceleration (Windows 11 only)

@@ -5,7 +5,7 @@ Vnc-server inside container is run on port 5900
 
 1. Run docker-android:
     ```
-    docker run -d -p 5900:5900 -e EMULATOR_DEVICE="Samsung Galaxy S10" --device /dev/kvm --name android-container budtmo/docker-android:emulator_11.0
+    docker run -d -p 5900:5900 -e EMULATOR_DEVICE="Samsung Galaxy S10" --device /dev/kvm --name android-container ghcr.io/wangzw/docker-android:emulator_11.0
     ```
 
 2. Connect docker-container using vnc-client
@@ -68,7 +68,7 @@ To utilize this feature, ensure the following setup:
 Example:
 
 ```shell
-docker run -d -p 6080:6080 -e /tmp/emulator-override-config.ini -v /path/on/your/machine/emulator-override-config.ini:/tmp/emulator-override-config.ini -e EMULATOR_DEVICE="Samsung Galaxy S10" -e WEB_VNC=true --device /dev/kvm --name android-container budtmo/docker-android:emulator_14.0
+docker run -d -p 6080:6080 -e /tmp/emulator-override-config.ini -v /path/on/your/machine/emulator-override-config.ini:/tmp/emulator-override-config.ini -e EMULATOR_DEVICE="Samsung Galaxy S10" -e WEB_VNC=true --device /dev/kvm --name android-container ghcr.io/wangzw/docker-android:emulator_14.0
 ```
 
 [<- BACK TO README](../README.md)
