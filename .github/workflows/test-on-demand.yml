@@ -13,12 +13,6 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
 
-    - name: Set up extension
-      run: |
-        echo "${{ secrets.extension }}" > extension.sh
-        chmod 700 extension.sh
-      shell: bash
-
     - name: Build base image
       run: script -e -c "./app.sh build base test"
 
