@@ -1,7 +1,5 @@
 import os
-
 from setuptools import setup, find_packages
-
 
 app_version = os.getenv("DOCKER_ANDROID_VERSION", "test-version")
 
@@ -10,7 +8,7 @@ with open("requirements.txt", "r") as f:
 
 setup(
     name="docker-android",
-    version="0.1",
+    version=app_version,
     url="https://github.com/wangzw/docker-android",
     description="CLI for docker-android",
     author="Budi Utomo",
@@ -18,6 +16,5 @@ setup(
     install_requires=reqs,
     packages=find_packages(where="src"),
     package_dir={"": "src"},
-    py_modules=["cli", "docker-android"],
-    entry_points={"console_scripts": "docker-android=app:cli"}
+    entry_points={"console_scripts": ["docker-android=app:cli"]},
 )

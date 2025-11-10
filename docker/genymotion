@@ -35,6 +35,7 @@ ENV APP_PATH=${WORK_PATH}/${SCRIPT_PATH}
 RUN mkdir -p ${APP_PATH}
 COPY mixins ${APP_PATH}/mixins
 COPY cli ${APP_PATH}/cli
+RUN cd ${APP_PATH}/cli && pip install --break-system-packages .
 
 #===================================
 # Create Genymotion Template folder
