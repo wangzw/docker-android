@@ -167,14 +167,15 @@ class Emulator(Device):
             for c in cmds:
                 subprocess.check_call(c, shell=True)
             self.logger.info("KVM permission is granted!")
-        else:
-            raise RuntimeError("/dev/kvm cannot be found!")
 
     def deploy(self):
         self.logger.info(f"Deploying the {self.device_type}")
 
+        kvm_path = "/dev/kvm"
+        accel = 'on' if os.path.exists(kvm_path) else 'off'
+
         basic_cmd = "emulator @{n}".format(n=self.name)
-        basic_args = "-gpu swiftshader_indirect -accel on -writable-system -verbose"
+        basic_args = "-gpu swiftshader_indirect -accel " + accel + " -writable-system -verbose"
         wipe_arg = "-wipe-data" if not self.is_initialized() else ""
 
         start_cmd = f"{basic_cmd} {basic_args} {wipe_arg} {self.additional_args}"
