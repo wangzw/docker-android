@@ -8,7 +8,7 @@ with open("requirements.txt", "r") as f:
 
 setup(
     name="docker-android",
-    version=app_version,
+    version="0.1",
     url="https://github.com/wangzw/docker-android",
     description="CLI for docker-android",
     author="Budi Utomo",
