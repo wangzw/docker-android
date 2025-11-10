@@ -84,12 +84,11 @@ function build() {
     cmd="docker build --no-cache -t ${IMAGE_NAME_SPECIFIC_RELEASE} --build-arg DOCKER_ANDROID_VERSION=${r_v} "
     if [ -n "${a_v}" ]; then
         DOCKER_BUILDKIT=1
-        cmd="${cmd} --secret id=extension,src=extension.sh --build-arg EMULATOR_ANDROID_VERSION=${a_v} --build-arg EMULATOR_API_LEVEL=${a_l} "
+        cmd="${cmd} --build-arg EMULATOR_ANDROID_VERSION=${a_v} --build-arg EMULATOR_API_LEVEL=${a_l} "
     fi
 
     if [[ "${p}" == *"genymotion"* ]]; then
         DOCKER_BUILDKIT=1
-        cmd="${cmd} --secret id=extension,src=extension.sh "
     fi
 
     cmd+="-f ${FOLDER_PATH} ."
