@@ -84,6 +84,7 @@ RUN mkdir -p ${APP_PATH}
 COPY mixins ${APP_PATH}/mixins
 COPY cli ${APP_PATH}/cli
 RUN cd ${APP_PATH}/cli && pip install --break-system-packages . && rm -rf build/
+RUN pip install --break-system-packages pyxdg==0.28 numpy==2.3.4
 
 #===================
 # Configure OpenBox

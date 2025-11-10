@@ -215,11 +215,11 @@ class Emulator(Device):
         booting_cmd = f"adb -s {self.adb_name} wait-for-device shell getprop sys.boot_completed"
         focus_cmd = f"adb -s {self.adb_name} shell dumpsys window | grep -i mCurrentFocus"
         self.check_adb_command(self.ReadinessCheck.BOOTED,
-                               booting_cmd, "1", 60, self.interval_waiting)
+                               booting_cmd, "1", 600, self.interval_waiting)
         time.sleep(self.interval_after_booting)
 
         interval_pop_up = 0
-        max_attempt_pop_up = 3
+        max_attempt_pop_up = 30
         pop_up_system_ui = "Not Responding: com.android.systemui"
         system_ui_cmd = f"adb shell su root 'kill $(pidof com.android.systemui)'"
         pop_up_key_enter = {
@@ -235,7 +235,7 @@ class Emulator(Device):
                                    interval_pop_up, key_enter_cmd)
 
         self.check_adb_command(self.ReadinessCheck.WELCOME_SCREEN,
-                               focus_cmd, "launcheractivity", 60, self.interval_waiting)
+                               focus_cmd, "launcheractivity", 600, self.interval_waiting)
         self.logger.info(f"{self.device_type} is ready to use")
 
     def tear_down(self, *args) -> None:
