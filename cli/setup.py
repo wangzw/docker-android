@@ -15,6 +15,7 @@ setup(
     author_email="budtmo.os@gmail.com",
     install_requires=reqs,
     packages=find_packages(where="src"),
+    py_modules=["app"],
     package_dir={"": "src"},
     entry_points={"console_scripts": ["docker-android=app:cli"]},
 )
