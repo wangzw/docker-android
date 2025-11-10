@@ -24,6 +24,3 @@ jobs:
 
     - name: Run unit-test
       run: script -e -c "./app.sh test emulator test 11.0 && sudo mv tmp/* ."
-
-    - name: Publish test result
-      run: bash <(curl -s https://codecov.io/bash)
