@@ -165,7 +165,7 @@ class Emulator(Device):
         accel = 'on' if os.path.exists(kvm_path) else 'off'
 
         basic_cmd = "emulator @{n}".format(n=self.name)
-        basic_args = "-gpu swiftshader_indirect -accel " + accel + " -writable-system -verbose -show-kernel -grpc"
+        basic_args = "-gpu swiftshader_indirect -accel " + accel + " -writable-system -verbose -show-kernel"
         wipe_arg = "-wipe-data" if not self.is_initialized() else ""
 
         start_cmd = f"{basic_cmd} {basic_args} {wipe_arg} {self.additional_args}"
